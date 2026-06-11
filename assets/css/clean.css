@@ -8,6 +8,7 @@
 	--blue: #2ea3f2;
 	--navy: #313b4b;
 	--dark: #1f1f1f;
+	--pink: #e81f63;
 	--max-width: 1080px;
 	--font-heading: 'Montserrat', Helvetica, Arial, sans-serif;
 	--font-body: 'Open Sans', Helvetica, Arial, sans-serif;
@@ -115,15 +116,24 @@ p {
 
 .hero {
 	position: relative;
-	background: var(--navy);
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-image: linear-gradient(180deg, var(--pink) 0%, rgba(232, 31, 99, 0.45) 100%);
 	color: #fff;
 	text-align: center;
 	padding: 110px 20px;
 }
 
+.hero .hero-inner {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
 .hero h1 {
-	font-size: 56px;
-	line-height: 1.2;
+	font-size: 60px;
+	line-height: 1.4;
 	margin-bottom: 0.3em;
 	letter-spacing: 2px;
 }
@@ -132,20 +142,73 @@ p {
 	display: block;
 	font-size: 22px;
 	max-width: 700px;
-	margin: 0 auto;
+	margin: 0 auto 1.5em;
 	font-family: var(--font-body);
 	font-weight: 300;
+	line-height: 1.8;
+}
+
+.hero .hero-buttons {
+	margin-top: 20px;
+}
+
+.hero .hero-buttons a {
+	display: inline-block;
+	margin: 0 10px;
+	padding: 0.6em 1.6em;
+	font-family: var(--font-heading);
+	font-weight: 700;
+	font-size: 16px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 2px solid;
+	transition: all 0.2s ease;
+}
+
+.hero .hero-buttons a.btn-primary {
+	border-color: var(--navy);
+	background: var(--navy);
+	color: #fff;
+}
+
+.hero .hero-buttons a.btn-secondary {
+	border-color: #fff;
+	background: transparent;
+	color: #fff;
+}
+
+.hero .hero-buttons a:hover {
+	background: #fff;
+	border-color: #fff;
+	color: var(--teal);
+}
+
+/* --- Large image band -------------------------------------------------------- */
+
+.image-band {
+	width: 100%;
+	height: 50vh;
+	min-height: 320px;
+	max-height: 600px;
+	object-fit: cover;
 }
 
 @media (max-width: 767px) {
 	.hero {
+		min-height: 70vh;
 		padding: 60px 20px;
 	}
 	.hero h1 {
-		font-size: 32px;
+		font-size: 34px;
 	}
 	.hero .subhead {
 		font-size: 18px;
+	}
+	.hero .hero-buttons a {
+		display: block;
+		margin: 10px auto;
+		max-width: 220px;
 	}
 }
 
@@ -270,7 +333,7 @@ section {
 
 .project-card img {
 	width: 100%;
-	height: 180px;
+	height: 280px;
 	object-fit: cover;
 }
 
@@ -301,6 +364,21 @@ section {
 
 /* --- Testimonials ------------------------------------------------------------ */
 
+.testimonials-section {
+	background-image: url('../images/2017/10/team-clients.png');
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size: contain;
+	padding-top: 280px;
+}
+
+@media (max-width: 767px) {
+	.testimonials-section {
+		background-size: cover;
+		padding-top: 120px;
+	}
+}
+
 .testimonial-grid {
 	display: flex;
 	flex-wrap: wrap;
@@ -316,6 +394,17 @@ section {
 	background: #fff;
 	padding: 30px;
 	border-left: 4px solid var(--teal);
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+}
+
+.testimonial img.portrait {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	object-fit: cover;
+	flex-shrink: 0;
 }
 
 .testimonial blockquote {
